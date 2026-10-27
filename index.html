@@ -991,7 +991,7 @@ h2.st.light{color:var(--ink);text-align:center;}
   <div class="si">
     <div class="apropos-split">
       <div class="apropos-img">
-        <div class="apropos-ph"><span>🧑‍🎨</span>Portrait du créateur<br><em style="font-size:11px;">Votre photo ici</em></div>
+        <img src="justin.jpg" alt="Justin — Dis-moi Oui by Holrï" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;">
       </div>
       <div class="apropos-content">
         <div class="eye eye-light">Le créateur</div>
@@ -1102,7 +1102,8 @@ h2.st.light{color:var(--ink);text-align:center;}
       <!-- ── SUNSET CORAIL ── -->
       <div class="theme-card" onclick="openTheme('sunset')">
         <div class="theme-cover">
-          <div class="theme-cover-placeholder">
+          <img src="sunset-corail-cover.jpg" alt="Sunset Corail" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="theme-cover-placeholder" style="display:none;">
             <span style="font-size:36px;opacity:.4;">🌅</span>
             <span>Photos à venir</span>
           </div>
@@ -1110,14 +1111,20 @@ h2.st.light{color:var(--ink);text-align:center;}
         </div>
         <div class="theme-body">
           <div class="theme-desc">Tons corail, ambre et or, fleurs chaudes et lumières de coucher de soleil — une décoration lumineuse et romantique pour un mariage mémorable.</div>
-          <div class="theme-mini-grid">
-            <div class="theme-mini-ph">🌅</div>
-            <div class="theme-mini-ph">🌅</div>
-            <div class="theme-mini-ph">🌅</div>
+          <div class="theme-mini-grid" id="mini-sunset">
+            <div class="theme-mini-img" onclick="event.stopPropagation();openLightbox('sunset',0)">
+              <img src="sunset-corail-cover.jpg" alt="Sunset Corail" onerror="this.parentElement.innerHTML='<div class=theme-mini-ph>🌅</div>'">
+            </div>
+            <div class="theme-mini-img" onclick="event.stopPropagation();openLightbox('sunset',1)">
+              <img src="sunset-corail-01.jpg" alt="Sunset Corail" onerror="this.parentElement.innerHTML='<div class=theme-mini-ph>🌅</div>'">
+            </div>
+            <div class="theme-mini-img" onclick="event.stopPropagation();openLightbox('sunset',2)">
+              <img src="sunset-corail-02.jpg" alt="Sunset Corail" onerror="this.parentElement.innerHTML='<div class=theme-mini-ph>🌅</div>'">
+            </div>
           </div>
         </div>
         <div class="theme-footer">
-          <span class="theme-count">Photos à venir</span>
+          <span class="theme-count" id="count-sunset">Photos à venir</span>
           <button class="theme-cta">Voir la collection →</button>
         </div>
       </div>
@@ -1440,6 +1447,10 @@ const THEMES = {
       { src: 'terracotta-vert-sauge-05.jpg', label: 'Vases champêtres' },
       { src: 'terracotta-vert-sauge-06.jpg', label: 'Composition florale' },
       { src: 'terracotta-vert-sauge-07.jpg', label: 'Vases terracotta & sauge' },
+      { src: 'terracotta-vert-sauge-08.jpg', label: 'Shooting — Table principale' },
+      { src: 'terracotta-vert-sauge-09.jpg', label: 'Shooting — Détail vases' },
+      { src: 'terracotta-vert-sauge-10.jpg', label: 'Shooting — Bougeoirs & accessoires' },
+      // Ajoute ici les photos supplémentaires : { src: 'terracotta-vert-sauge-11.jpg', label: '...' },
     ]
   },
   boheme: {
@@ -1458,8 +1469,14 @@ const THEMES = {
   },
   sunset: {
     name: 'Sunset Corail',
-    cover: null,
-    photos: []
+    cover: 'sunset-corail-cover.jpg',
+    photos: [
+      { src: 'sunset-corail-cover.jpg', label: 'Sunset Corail — Table principale' },
+      { src: 'sunset-corail-01.jpg', label: 'Sunset Corail — Détail' },
+      { src: 'sunset-corail-02.jpg', label: 'Sunset Corail — Vases & bougeoirs' },
+      { src: 'sunset-corail-03.jpg', label: 'Sunset Corail — Accessoires' },
+      // Ajoute ici les photos supplémentaires : { src: 'sunset-corail-04.jpg', label: '...' },
+    ]
   }
 };
 
