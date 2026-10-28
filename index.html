@@ -682,6 +682,27 @@ h2.st.light{color:var(--ink);text-align:center;}
   .theme-mini-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+
+/* ── DIAPORAMA INLINE ── */
+.inline-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--parch);
+}
+.inline-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+.inline-slide.active { opacity: 1; }
+
 </style>
 <!-- Calendly popup -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -721,6 +742,7 @@ h2.st.light{color:var(--ink);text-align:center;}
   <div class="slide active" style="background-image:url('1785151648632.png');"></div>
   <div class="slide" style="background-image:url('1000048812.png');"></div>
   <div class="slide" style="background-image:url('1000051366.png');"></div>
+  <div class="slide" style="background-image:url('sunset-corail-cover.jpg');"></div>
 </div>
 <div class="hero-overlay"></div>
   <div class="hero-badge">
@@ -922,7 +944,7 @@ h2.st.light{color:var(--ink);text-align:center;}
             <div class="presta-check">✓</div>
             <div class="presta-col-icon">🗂</div>
             <div class="presta-col-title">Coordination</div>
-            <div class="presta-col-tagline">Jour J · Sérénité · Zéro friction</div>
+            <div class="presta-col-tagline">Jour J · Sérénité</div>
           </div>
           <div class="presta-col-body">
             <div class="presta-tier"><div class="presta-tier-row"><span class="presta-tier-name">Coordination Jour J</span><span class="presta-tier-price">1 200€</span></div><div class="presta-tier-desc">Rétroplanning, prestataires, présence le Jour J.</div></div>
@@ -1434,6 +1456,25 @@ function sendToForm() {
 </script>
 
 <script>
+
+// ── Diaporamas inline sections ────────────────────────────────
+(function() {
+  function startSlideshow(id) {
+    var container = document.getElementById(id);
+    if (!container) return;
+    var slides = container.querySelectorAll('.inline-slide');
+    if (slides.length < 2) return;
+    var idx = 0;
+    setInterval(function() {
+      slides[idx].classList.remove('active');
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add('active');
+    }, 4000);
+  }
+  startSlideshow('deco-slideshow');
+  startSlideshow('coord-slideshow');
+})();
+
 // ── DONNÉES DES THÈMES ──────────────────────────────────────────
 const THEMES = {
   terracotta: {
@@ -1471,11 +1512,19 @@ const THEMES = {
     name: 'Sunset Corail',
     cover: 'sunset-corail-cover.jpg',
     photos: [
-      { src: 'sunset-corail-cover.jpg', label: 'Sunset Corail — Table principale' },
-      { src: 'sunset-corail-01.jpg', label: 'Sunset Corail — Détail' },
-      { src: 'sunset-corail-02.jpg', label: 'Sunset Corail — Vases & bougeoirs' },
-      { src: 'sunset-corail-03.jpg', label: 'Sunset Corail — Accessoires' },
-      // Ajoute ici les photos supplémentaires : { src: 'sunset-corail-04.jpg', label: '...' },
+      { src: 'sunset-corail-cover.jpg', label: 'Sunset Corail — Vue d\'ensemble' },
+      { src: 'sunset-corail-01.jpg', label: 'Figurine couple' },
+      { src: 'sunset-corail-02.jpg', label: 'Lanterne & accessoires' },
+      { src: 'sunset-corail-03.jpg', label: 'Bougeoir vert sauge' },
+      { src: 'sunset-corail-04.jpg', label: 'Assiette & rond de serviette' },
+      { src: 'sunset-corail-05.jpg', label: 'Rond de serviette oiseau' },
+      { src: 'sunset-corail-06.jpg', label: 'Détail oiseau' },
+      { src: 'sunset-corail-07.jpg', label: 'Détail table' },
+      { src: 'sunset-corail-08.jpg', label: 'Justin — mise en place' },
+      { src: 'sunset-corail-09.jpg', label: 'Installation nappe' },
+      { src: 'sunset-corail-10.jpg', label: 'Tissu fuchsia' },
+      { src: 'sunset-corail-11.jpg', label: 'Justin — portrait' },
+      { src: 'sunset-corail-12.jpg', label: 'Détail vase corail' },
     ]
   }
 };
