@@ -840,9 +840,14 @@ h2.st.light{color:var(--ink);text-align:center;}
         <div class="section-cta" style="justify-content:flex-start;margin-top:24px;"><a href="#formules">Voir les formules →</a></div>
       </div>
       <div class="visu-frames">
-        <div class="visu-frame-label">Rendu à venir</div>
-        <div class="visu-frame" style="aspect-ratio:4/3;">
-          <div class="visu-ph"><span>🖼</span>Visualisation 3D de votre projet</div>
+        <div class="inline-slideshow" id="deco-slideshow">
+          <img class="inline-slide active" src="terracotta-vert-sauge-08.jpg" alt="Figurine de couple">
+          <img class="inline-slide" src="terracotta-vert-sauge-09.jpg" alt="Lanternes diverses">
+          <img class="inline-slide" src="terracotta-vert-sauge-10.jpg" alt="Bougeoir vert sauge">
+          <img class="inline-slide" src="terracotta-vert-sauge-11.jpg" alt="Assiette et rond de serviette">
+          <img class="inline-slide" src="terracotta-vert-sauge-12.jpg" alt="Rond de serviette">
+          <img class="inline-slide" src="terracotta-vert-sauge-13.jpg" alt="Rond de serviette oiseau">
+          <img class="inline-slide" src="terracotta-vert-sauge-14.jpg" alt="Détail oiseau">
         </div>
       </div>
     </div>
@@ -878,7 +883,14 @@ h2.st.light{color:var(--ink);text-align:center;}
         </div>
         <div class="section-cta" style="justify-content:flex-start;margin-top:24px;"><a href="#formules">Voir les formules →</a></div>
       </div>
-      <div style="display:flex;align-items:center;"><div class="visu-frame" style="width:100%;aspect-ratio:3/4;"><div class="visu-ph"><span>🗂</span>Photo à venir</div></div></div>
+      <div style="display:flex;align-items:center;width:100%;"><div class="inline-slideshow" id="coord-slideshow">
+          <img class="inline-slide active" src="sunset-corail-08.jpg" alt="Mise en place de la table">
+          <img class="inline-slide" src="sunset-corail-09.jpg" alt="Installation de la nappe">
+          <img class="inline-slide" src="sunset-corail-10.jpg" alt="Tissu fuchsia">
+          <img class="inline-slide" src="sunset-corail-11.jpg" alt="Portrait à travers les fleurs">
+          <img class="inline-slide" src="sunset-corail-12.jpg" alt="Détail vase et serviette">
+          <img class="inline-slide" src="sunset-corail-cover.jpg" alt="Table Sunset Corail">
+        </div></div>
     </div>
   </div>
 </section>
@@ -1076,7 +1088,7 @@ h2.st.light{color:var(--ink);text-align:center;}
           </div>
         </div>
         <div class="theme-footer">
-          <span class="theme-count">7 photos</span>
+          <span class="theme-count">14 photos</span>
           <button class="theme-cta">Voir la collection →</button>
         </div>
       </div>
@@ -1138,15 +1150,15 @@ h2.st.light{color:var(--ink);text-align:center;}
               <img src="sunset-corail-cover.jpg" alt="Sunset Corail" onerror="this.parentElement.innerHTML='<div class=theme-mini-ph>🌅</div>'">
             </div>
             <div class="theme-mini-img" onclick="event.stopPropagation();openLightbox('sunset',1)">
-              <img src="terracotta-vert-sauge-08.jpg" alt="Sunset Corail" onerror="this.parentElement.innerHTML='<div class=theme-mini-ph>🌅</div>'">
+              <img src="sunset-corail-08.jpg" alt="Sunset Corail" onerror="this.parentElement.innerHTML='<div class=theme-mini-ph>🌅</div>'">
             </div>
             <div class="theme-mini-img" onclick="event.stopPropagation();openLightbox('sunset',2)">
-              <img src="terracotta-vert-sauge-09.jpg" alt="Sunset Corail" onerror="this.parentElement.innerHTML='<div class=theme-mini-ph>🌅</div>'">
+              <img src="sunset-corail-09.jpg" alt="Sunset Corail" onerror="this.parentElement.innerHTML='<div class=theme-mini-ph>🌅</div>'">
             </div>
           </div>
         </div>
         <div class="theme-footer">
-          <span class="theme-count" id="count-sunset">Photos à venir</span>
+          <span class="theme-count" id="count-sunset">6 photos</span>
           <button class="theme-cta">Voir la collection →</button>
         </div>
       </div>
@@ -1491,7 +1503,10 @@ const THEMES = {
       { src: 'terracotta-vert-sauge-08.jpg', label: 'Shooting — Table principale' },
       { src: 'terracotta-vert-sauge-09.jpg', label: 'Lanternes diverses' },
       { src: 'terracotta-vert-sauge-10.jpg', label: 'Shooting — Bougeoirs & accessoires' },
-      // Ajoute ici les photos supplémentaires : { src: 'terracotta-vert-sauge-11.jpg', label: '...' },
+      { src: 'terracotta-vert-sauge-11.jpg', label: 'Assiette & rond de serviette' },
+      { src: 'terracotta-vert-sauge-12.jpg', label: 'Rond de serviette' },
+      { src: 'terracotta-vert-sauge-13.jpg', label: 'Rond de serviette oiseau' },
+      { src: 'terracotta-vert-sauge-14.jpg', label: 'Détail oiseau' },
     ]
   },
   boheme: {
@@ -1513,13 +1528,6 @@ const THEMES = {
     cover: 'sunset-corail-cover.jpg',
     photos: [
       { src: 'sunset-corail-cover.jpg', label: 'Sunset Corail — Vue d\'ensemble' },
-      { src: 'terracotta-vert-sauge-08.jpg', label: 'Figurine couple' },
-      { src: 'terracotta-vert-sauge-09.jpg', label: 'Lanterne & accessoires' },
-      { src: 'terracotta-vert-sauge-10.jpg', label: 'Bougeoir vert sauge' },
-      { src: 'terracotta-vert-sauge-11.jpg', label: 'Assiette & rond de serviette' },
-      { src: 'terracotta-vert-sauge-12.jpg', label: 'Rond de serviette oiseau' },
-      { src: 'terracotta-vert-sauge-13.jpg', label: 'Détail oiseau' },
-      { src: 'terracotta-vert-sauge-14.jpg', label: 'Détail table' },
       { src: 'sunset-corail-08.jpg', label: 'Justin — mise en place' },
       { src: 'sunset-corail-09.jpg', label: 'Installation nappe' },
       { src: 'sunset-corail-10.jpg', label: 'Tissu fuchsia' },
